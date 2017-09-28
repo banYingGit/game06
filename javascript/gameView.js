@@ -48,13 +48,13 @@ for (var i = 1; i < 33; i++) {
 
 /* 全局变量
  * source40: 第一部分答题数组
- * source20：第二部分答题数组
+ * source20：第二部分答题数组>60
  *
  */
 
 var $res = sourceA.concat(sourceB),
     source40 = _getArrayItems($res, 40),
-    source20 = _getArrayItems($res, 20);
+    source20 = _getArrayItems($res, 60);
 
 
 _event()
@@ -255,9 +255,18 @@ function _setListpartA() {
     //设置选择按钮
 
 
-    $('#listButA').attr({'data-role': 'create', 'onclick': '_clickButA(event)'}).removeClass('gray')
+    $('#listButA').attr({'data-role': 'create', 'onclick': '_clickButA(event)'}).removeClass('gray').removeClass('blue')
+    setTimeout(function () {
 
-    $('#listButB').attr({'data-role': 'natural', 'onclick': '_clickButA(event)'}).removeClass('gray')
+        $('#listButA , #listButB').removeClass('gray')
+
+    }, 500)
+
+
+    $('#listButB').attr({
+        'data-role': 'natural',
+        'onclick': '_clickButA(event)'
+    }).removeClass('gray').removeClass('blue')
 
 
     //设置倒计时
@@ -361,9 +370,15 @@ function _setListpartB() {
 
     //设置选择按钮
 
-    $('#listButA').attr({'data-role': 'yes', 'onclick': '_clickButA(event)'}).text('出现过').removeClass('gray')
+    $('#listButA').attr({
+        'data-role': 'yes',
+        'onclick': '_clickButA(event)'
+    }).text('出现过').removeClass('gray').removeClass('blue')
 
-    $('#listButB').attr({'data-role': 'no', 'onclick': '_clickButA(event)'}).text('没出现过').removeClass('gray')
+    $('#listButB').attr({
+        'data-role': 'no',
+        'onclick': '_clickButA(event)'
+    }).text('没出现过').removeClass('gray').removeClass('blue')
 
 
     //设置倒计时
@@ -399,7 +414,7 @@ function _setListpartB() {
         setNum = setNum + 1
 
         //6改21 时间到了结束
-        if (setNum < 21) {
+        if (setNum < 61) {
 
             _setListpartB()
 
@@ -450,9 +465,17 @@ function _clickButA(e) {
 
         getChoseA.push($obj)
 
-        $('#listButA').removeAttr('onclick').addClass('gray')
+        $(e.target).addClass('blue')
 
-        $('#listButB').removeAttr('onclick').addClass('gray')
+        $('#listButA , #listButB').removeAttr('onclick')
+
+
+        setTimeout(function () {
+
+            $(e.target).removeClass('blue')
+            $('#listButA , #listButB').addClass('gray')
+
+        }, 500)
 
 
     } else if ($('#list').attr('data-part') == "B") {
@@ -463,10 +486,13 @@ function _clickButA(e) {
 
         setNum = setNum + 1
 
-        //6改21  点击结束
-        if (setNum < 21) {
+        //6改61  点击结束
+        if (setNum < 61) {
+            $(e.target).addClass('gray')
+            setTimeout(function () {
+                _setListpartB()
+            }, 500)
 
-            _setListpartB()
 
         } else {
 

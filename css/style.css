@@ -42,13 +42,13 @@ img {
 }
 
 .logo {
-    width: 35%;
+    width: 40%;
     margin: 10% auto 5% auto
 }
 
 /* 文字说明背景 */
 .box-bg {
-    width: 60%;
+    width: 75%;
     padding: 3% 4%;
     margin: 0 auto 5% auto;
     background: rgba(255, 255, 255, 0.2);
@@ -98,7 +98,7 @@ img {
 /* 按钮样式 */
 .button-box {
     width: 100%;
-    height: 8.5%;
+    height: 9.5%;
     text-align: center;
 }
 
@@ -109,7 +109,7 @@ img {
     color: #fff;
     padding: 0 40px;
     text-shadow: 2px 2px 2px #666;
-    letter-spacing: 20px;
+    letter-spacing: 18px;
     text-indent: 20px;
     border: solid 1px #08cbd8;
     border-radius: 25px;
@@ -422,12 +422,15 @@ img {
 
 .list-right .button-box p.button {
     display: block;
-    width: 50%;
+    width: 60%;
     margin: 20% auto 0 auto;
     transition: all 0.2s;
 }
 .list-right .button-box p.button.gray{
     background: #d1d1d1;
+}
+.list-right .button-box p.button.blue{
+    background: #00479d;
 }
 
 /** 游戏暂停 **/
